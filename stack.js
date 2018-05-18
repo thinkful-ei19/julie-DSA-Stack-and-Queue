@@ -99,8 +99,31 @@ function matchingParen(string) {
         const val = closedStack.pop()
         return `Extra: ${val}`
     }
- 
-
 }
 
-console.log(matchingParen((2)+(2)));
+// console.log(matchingParen((2)+(2)));
+
+function sortStack(stack){
+    let holder = new Stack();
+    while (stack.top) {
+        let num = stack.pop();
+        while(holder.top && peek(holder) > num) {
+            stack.push(holder.pop())
+        }
+        holder.push(num)
+    }
+    // while loop through original 
+        //compare while loop 
+        // pushing into stack
+    return holder;
+}
+let stack = new Stack();
+stack.push(1);
+stack.push(9);
+stack.push(6);
+console.log(JSON.stringify(sortStack(stack)));
+
+
+    // while loop through original 
+        //compare while loop 
+        // pushing into stack
