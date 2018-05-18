@@ -45,7 +45,7 @@ function main() {
         starTrek.push('McCoy');
         starTrek.push('Scotty');
         // display(starTrek);
-        console.log(JSON.stringify(starTrek));
+        // console.log(JSON.stringify(starTrek));
 }
 
 
@@ -55,19 +55,24 @@ main();
 function is_palindrome(s) {
     s = s.toLowerCase().replace(/[^a-zA-Z0-9]/g, "");
     let newStack = new Stack();
-    for(let i = 0; i < s.length; i ++) {
+    let checkStack = false;
+    for(let i = 0; i < s.length; i++) {
         newStack.push(s[i]);
-        if (s[i] !== newStack.pop(s[i])) {
-            return false;
+    }
+    for(let i = 0; i < s.length; i++) {
+        if(s[i] === newStack.pop()) {
+            checkStack = true;
         } else {
-            return true;
+            checkStack = false;
         }
     }
+    return checkStack;
 
 }
-
 
 console.log(is_palindrome("dad"));
 console.log(is_palindrome("A man, a plan, a canal: Panama"));
 console.log(is_palindrome("1001"));
 console.log(is_palindrome("Tauhida"));
+
+
