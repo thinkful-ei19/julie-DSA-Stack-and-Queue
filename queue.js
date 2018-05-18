@@ -34,6 +34,25 @@ class Queue {
         } 
 
         return node.value;
-    
+
     }
+
 }
+
+function peek(queue) {
+    console.log(queue.first.value, queue.last.value);
+    return queue.first.value, queue.last.value
+}
+
+function main() {
+    let starTrekQ = new Queue();
+        starTrekQ.enqueue('Kirk');
+        starTrekQ.enqueue('Spock');
+        starTrekQ.enqueue('Uhura');
+        starTrekQ.enqueue('Sulu');
+        starTrekQ.enqueue('Checkov');
+        // console.log(starTrekQ);
+        peek(starTrekQ);
+}
+
+main();
