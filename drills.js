@@ -54,13 +54,13 @@ main();
 //push nodes into stack, each pop, compare to first letter of string as long as not false
 function is_palindrome(s) {
     s = s.toLowerCase().replace(/[^a-zA-Z0-9]/g, "");
-    let newStack = new Stack();
+    let stack = new Stack();
     let checkStack = false;
     for(let i = 0; i < s.length; i++) {
-        newStack.push(s[i]);
+        stack.push(s[i]);
     }
     for(let i = 0; i < s.length; i++) {
-        if(s[i] === newStack.pop()) {
+        if(s[i] === stack.pop()) {
             checkStack = true;
         } else {
             checkStack = false;
@@ -70,9 +70,37 @@ function is_palindrome(s) {
 
 }
 
-console.log(is_palindrome("dad"));
-console.log(is_palindrome("A man, a plan, a canal: Panama"));
-console.log(is_palindrome("1001"));
-console.log(is_palindrome("Tauhida"));
+// console.log(is_palindrome("dad"));
+// console.log(is_palindrome("A man, a plan, a canal: Panama"));
+// console.log(is_palindrome("1001"));
+// console.log(is_palindrome("Tauhida"));
 
+function matchingParen(string) {
+    //only need one stack
+    let openStack = new Stack();
+    let closedStack = new Stack();
+    let openParens=0;
+    let closedParens=0;
+    for (let i = 0; i < string.length; i++ ) {
+        if (str[i] === '(') {
+            openStack.push(i)
+            openParens++;
+        } else if (str[i] === ')') {
+            closedStack.push(i)
+            closedParens++;
+        }
+    } 
+    if (openParens === closedParens) {
+        return true;
+    } else if (openParens > closedParens) {
+        const val = openStack.pop()
+        return `Extra: ${val}`
+    } else if (openParens < closedParens) {
+        const val = closedStack.pop()
+        return `Extra: ${val}`
+    }
+ 
 
+}
+
+console.log(matchingParen((2)+(2)));
