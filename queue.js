@@ -62,6 +62,8 @@ function main() {
         starTrekQ.enqueue('Checkov');
         // console.log(starTrekQ);
         // peek(starTrekQ);
+        starTrekQ.dequeue();
+        starTrekQ.dequeue();
         display(starTrekQ);
 }
 
