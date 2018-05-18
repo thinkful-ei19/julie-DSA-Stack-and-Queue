@@ -70,10 +70,23 @@ function main() {
 main();
 
 
-function queueStack() {
     //queue of objects, create stack for queue
     //loop through stack and create another stack from there
     //then queue is in order because it flips itself
     //loop and pop those values and push them into another stack
     //the stack will be right order
-}
+
+
+
+
+function queueUsingStack(stack) {
+    let node = stack.top;
+    let QueueStack = new Stack();
+    while (node !== null) {
+      QueueStack.push(stack.pop());
+      node = node.next;
+    }
+    return QueueStack;
+  }
+  
+  console.log(queueUsingStack(stack));
