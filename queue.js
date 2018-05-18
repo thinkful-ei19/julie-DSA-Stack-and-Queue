@@ -40,8 +40,17 @@ class Queue {
 }
 
 function peek(queue) {
-    console.log(queue.first.value, queue.last.value);
-    return queue.first.value, queue.last.value
+    console.log(queue.first.value);
+    return queue.first.value
+}
+
+function display(queue){
+    let node = queue.first;
+    while(node !== queue.last) {
+        console.log(node.value);
+        node = node.prev;
+    }
+    
 }
 
 function main() {
@@ -52,7 +61,17 @@ function main() {
         starTrekQ.enqueue('Sulu');
         starTrekQ.enqueue('Checkov');
         // console.log(starTrekQ);
-        peek(starTrekQ);
+        // peek(starTrekQ);
+        display(starTrekQ);
 }
 
 main();
+
+
+function queueStack() {
+    //queue of objects, create stack for queue
+    //loop through stack and create another stack from there
+    //then queue is in order because it flips itself
+    //loop and pop those values and push them into another stack
+    //the stack will be right order
+}
